@@ -1,0 +1,8 @@
+
+POST http://localhost:5000/auth/login
+Content-Type: application/json
+
+{ "username":"user2", "password":"12345" }
+
+
+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmU2YTU1OWI2YzhlZDg3NzYzZGRmYzYiLCJpYXQiOjE3MjYzOTE4NTcsImV4cCI6MTcyNjM5NTQ1N30.dyBbXvxC1A-uwh3cF2dttU8K2fAJ2l81PaLs70CpahM"

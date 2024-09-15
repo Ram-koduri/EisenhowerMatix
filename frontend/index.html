@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Eisenhower Matrix Web App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Authentication Section -->
+    <div id="auth-container">
+        <h2>Login</h2>
+        <form id="login-form">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <span id="signup-toggle">Sign up</span></p>
+
+        <div id="signup-form-container" style="display: none;">
+            <h2>Sign Up</h2>
+            <form id="signup-form">
+                <input type="text" id="signup-username" placeholder="Username" required>
+                <input type="password" id="signup-password" placeholder="Password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+            <p>Already have an account? <span id="login-toggle">Log in</span></p>
+        </div>
+    </div>
+
+    <!-- App Section (Hidden until login) -->
+    <div id="app-container" style="display:none;">
+        <!-- Header -->
+        <header>
+            <h1>Eisenhower Matrix</h1>
+            <div class="header-right">
+                <label class="switch">
+                    <input type="checkbox" id="toggle-dark-mode">
+                    <span class="slider round"></span>
+                </label>
+                <button id="logout-btn">Logout</button>
+            </div>
+        </header>
+
+        <!-- Filter and Search -->
+        <div class="controls">
+            <input type="text" id="search-input" placeholder="Search tasks...">
+            <select id="tag-filter">
+                <option value="">All Tags</option>
+            </select>
+        </div>
+
+        <!-- Matrix Container -->
+        <div class="matrix">
+            <div class="quadrant" data-quadrant="do-first">
+                <h2>Do First</h2>
+                <div class="task-list" id="do-first-list"></div>
+                <button class="add-task-btn">+ Add Task</button>
+            </div>
+            <div class="quadrant" data-quadrant="schedule">
+                <h2>Schedule</h2>
+                <div class="task-list" id="schedule-list"></div>
+                <button class="add-task-btn">+ Add Task</button>
+            </div>
+            <div class="quadrant" data-quadrant="delegate">
+                <h2>Delegate</h2>
+                <div class="task-list" id="delegate-list"></div>
+                <button class="add-task-btn">+ Add Task</button>
+            </div>
+            <div class="quadrant" data-quadrant="dont-do">
+                <h2>Don't Do</h2>
+                <div class="task-list" id="dont-do-list"></div>
+                <button class="add-task-btn">+ Add Task</button>
+            </div>
+        </div>
+
+        <!-- Completed Tasks -->
+        <div class="completed-section">
+            <button class="completed-toggle">Completed ▼</button>
+            <div class="completed-tasks" id="completed-tasks" style="display: none;">
+                <div class="task-list" id="completed-list"></div>
+            </div>
+        </div>
+
+        <!-- Modals and Overlays -->
+        <!-- Task Modal -->
+        <div id="task-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <textarea id="task-content" placeholder="Task description..."></textarea>
+                <input type="date" id="task-due-date">
+                <input type="text" id="task-tags" placeholder="Tags (comma separated)">
+                <button id="save-task-btn">Save Task</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
